@@ -1,0 +1,572 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>خلّي Claude يرد على WhatsApp بتاعك: دليل Kapso خطوة بخطوة | Grow With Khalaf</title>
+<meta name="description" content="اربط Claude Code بـ Kapso، وابني agent على واتساب يرد على الـ leads ويحجزلهم ديمو مع السيلز. كل الخطوات والأوامر وقواعد Meta والأسعار بالعربي.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="خلّي Claude يرد على WhatsApp بتاعك">
+<meta property="og:description" content="اربط Claude Code بـ Kapso وابني agent واتساب للـ leads. الخطوات كاملة من Grow With Khalaf.">
+<meta property="og:image" content="https://mohamedkhalafalla.github.io/gwk-whatsapp-agent/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#00273C">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #00273C;
+  --navy-2: #0A3550;
+  --cyan: #16ECED;
+  --ice: #D2FFFF;
+  --orange: #FF660F;
+  --peach: #FAD9C6;
+  --white: #FFFFFF;
+  --ink: #00273C;
+  --muted: #48606E;
+  --line: #DCE6EA;
+  --soft: #F4FAFB;
+  --radius: 16px;
+  --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 84px; overflow-x: clip; }
+body {
+  margin: 0;
+  font-family: 'Cairo', system-ui, sans-serif;
+  color: var(--ink);
+  background: var(--white);
+  font-size: 18px;
+  line-height: 1.85;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+a { color: inherit; }
+bdi, .en { unicode-bidi: isolate; }
+code { font-family: var(--mono); font-size: .85em; background: var(--ice); color: var(--navy); padding: 1px 7px; border-radius: 6px; direction: ltr; unicode-bidi: isolate; white-space: nowrap; }
+
+/* ---------- top bar ---------- */
+.topbar { position: sticky; top: 0; z-index: 20; background: rgba(0, 39, 60, .96); backdrop-filter: blur(8px); border-bottom: 1px solid rgba(22, 236, 237, .14); }
+.topbar .in { max-width: 1180px; margin: 0 auto; padding: 12px 20px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.brand { display: flex; align-items: center; gap: 10px; color: var(--white); text-decoration: none; font-weight: 900; direction: ltr; letter-spacing: .2px; }
+.brand .dot { width: 30px; height: 30px; border-radius: 9px; background: var(--cyan); color: var(--navy); display: grid; place-items: center; font-size: 15px; font-weight: 900; }
+.brand b { color: var(--cyan); }
+.btn { display: inline-flex; align-items: center; gap: 10px; border-radius: 999px; padding: 12px 26px; font-weight: 800; font-size: 17px; text-decoration: none; border: 0; cursor: pointer; font-family: inherit; transition: transform .15s ease, box-shadow .15s ease; white-space: nowrap; }
+.btn:hover { transform: translateY(-1px); }
+.btn-cyan { background: var(--cyan); color: var(--navy); box-shadow: 0 0 34px rgba(22, 236, 237, .35); }
+.btn-ghost { background: transparent; color: var(--white); border: 1.5px solid rgba(255, 255, 255, .35); }
+.btn-navy { background: var(--navy); color: var(--white); }
+.btn svg { width: 20px; height: 20px; flex: none; }
+.topbar .btn { padding: 9px 20px; font-size: 15px; }
+
+/* ---------- hero ---------- */
+.hero {
+  background:
+    radial-gradient(rgba(255, 255, 255, .07) 2px, transparent 2px) 0 0 / 44px 44px,
+    radial-gradient(circle at 8% 4%, rgba(22, 236, 237, .24) 0%, transparent 42%),
+    var(--navy);
+  color: var(--white);
+  overflow: hidden;
+}
+.hero .in { max-width: 1180px; margin: 0 auto; padding: 44px 20px 0; display: grid; grid-template-columns: 1.25fr .75fr; gap: 24px; align-items: end; }
+.crumbs { font-size: 15px; color: rgba(255, 255, 255, .6); margin-bottom: 18px; }
+.crumbs span { margin: 0 6px; }
+.eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 800; color: var(--cyan); letter-spacing: .5px; border: 1px solid rgba(22, 236, 237, .4); border-radius: 999px; padding: 4px 14px; }
+.hero h1 { font-size: clamp(36px, 5.4vw, 62px); line-height: 1.3; font-weight: 900; margin: 18px 0 14px; }
+.hero h1 .hl { color: var(--orange); }
+.hero .lead { font-size: clamp(18px, 2vw, 22px); color: rgba(255, 255, 255, .82); margin: 0 0 26px; max-width: 640px; }
+.hero .ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 26px; }
+.byline { display: flex; align-items: center; gap: 12px; padding-bottom: 44px; font-size: 15px; color: rgba(255, 255, 255, .7); }
+.byline .av { width: 44px; height: 44px; border-radius: 50%; background: var(--cyan); color: var(--navy); display: grid; place-items: center; font-weight: 900; font-size: 18px; }
+.byline strong { display: block; color: var(--white); font-size: 16px; }
+.facts { display: flex; flex-wrap: wrap; gap: 8px 18px; margin-top: 4px; }
+.facts span::before { content: "✓"; color: var(--cyan); font-weight: 900; margin-left: 6px; }
+.hero-art { position: relative; align-self: end; display: flex; justify-content: center; min-height: 420px; }
+.hero-art img.me { width: min(420px, 100%); display: block; filter: drop-shadow(0 0 32px rgba(22, 236, 237, .35)); position: relative; z-index: 1; }
+.logos { position: absolute; top: 18px; inset-inline: 0; display: flex; justify-content: center; align-items: center; gap: 0; direction: ltr; z-index: 2; }
+.tile { width: 76px; height: 76px; border-radius: 20px; background: var(--white); display: grid; place-items: center; box-shadow: 0 10px 30px rgba(0, 0, 0, .25); }
+.tile img { width: 62%; height: 62%; }
+.link-line { width: 74px; height: 6px; background: repeating-linear-gradient(90deg, var(--cyan) 0 12px, transparent 12px 22px); border-radius: 4px; }
+
+/* ---------- layout ---------- */
+.wrap { max-width: 1180px; margin: 0 auto; padding: 48px 20px 30px; display: grid; grid-template-columns: minmax(0, 1fr) 250px; gap: 56px; }
+article { min-width: 0; max-width: 780px; }
+aside.toc { position: sticky; top: 90px; align-self: start; font-size: 15px; line-height: 1.6; }
+.toc h4 { font-size: 13px; letter-spacing: .6px; color: var(--muted); margin: 0 0 10px; font-weight: 800; }
+.toc ol { list-style: none; margin: 0; padding: 0; border-right: 2px solid var(--line); }
+.toc li a { display: block; padding: 6px 14px; text-decoration: none; color: var(--muted); border-right: 2px solid transparent; margin-right: -2px; }
+.toc li a:hover { color: var(--navy); }
+.toc li a.on { color: var(--navy); font-weight: 800; border-right-color: var(--orange); }
+.toc-mobile { display: none; }
+
+article h2 { font-size: clamp(26px, 3.2vw, 34px); line-height: 1.4; font-weight: 900; margin: 64px 0 14px; }
+article h2:first-of-type { margin-top: 8px; }
+article h2 .n { display: inline-grid; place-items: center; width: 40px; height: 40px; border-radius: 12px; background: var(--navy); color: var(--cyan); font-size: 20px; margin-left: 10px; vertical-align: 4px; }
+article h3 { font-size: 21px; font-weight: 800; margin: 34px 0 8px; }
+article p { margin: 0 0 16px; }
+article ul { padding-right: 22px; margin: 0 0 16px; }
+article li { margin-bottom: 6px; }
+.big { font-size: 20px; }
+.hl { color: var(--orange); }
+
+/* ---------- callouts ---------- */
+.callout { border-radius: var(--radius); padding: 20px 24px; margin: 24px 0; }
+.callout .label { font-size: 13px; font-weight: 900; letter-spacing: .6px; margin-bottom: 4px; display: block; }
+.callout p:last-child { margin-bottom: 0; }
+.callout.warn { background: var(--peach); }
+.callout.warn .label { color: #B8430A; }
+.callout.tip { background: var(--ice); }
+.callout.tip .label { color: var(--navy); }
+.callout.dark { background: var(--navy); color: var(--white); }
+.callout.dark .label { color: var(--cyan); }
+
+/* ---------- tables ---------- */
+.tbl { overflow-x: auto; margin: 18px 0 26px; border: 1px solid var(--line); border-radius: var(--radius); }
+table { width: 100%; border-collapse: collapse; font-size: 16px; line-height: 1.7; }
+th { background: var(--navy); color: var(--white); text-align: right; font-weight: 800; font-size: 13px; letter-spacing: .5px; padding: 12px 16px; white-space: nowrap; }
+td { padding: 14px 16px; border-top: 1px solid var(--line); vertical-align: top; }
+tr:nth-child(even) td { background: var(--soft); }
+.agent { display: inline-block; direction: ltr; unicode-bidi: isolate; font-weight: 800; background: var(--ice); color: var(--navy); padding: 2px 10px; border-radius: 8px; white-space: nowrap; font-size: 15px; }
+.gloss { display: block; font-size: 13px; color: var(--muted); margin-top: 4px; }
+.pts { font-weight: 900; color: var(--orange); font-size: 20px; text-align: center; }
+.num { font-weight: 900; color: var(--orange); }
+.group-title { display: flex; align-items: center; gap: 10px; font-size: 19px; font-weight: 800; margin: 28px 0 0; }
+.group-title::before { content: ""; width: 10px; height: 10px; border-radius: 3px; background: var(--cyan); box-shadow: 0 0 0 4px var(--ice); }
+
+/* ---------- prompt + code ---------- */
+.prompt { border: 1.5px solid var(--navy); border-radius: var(--radius); margin: 18px 0 26px; overflow: hidden; }
+.prompt-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; background: var(--navy); color: var(--white); padding: 10px 14px 10px 10px; }
+.prompt-head .t { font-weight: 800; font-size: 15px; }
+.prompt-head .t small { color: var(--cyan); font-size: 12px; letter-spacing: .6px; margin-left: 8px; }
+.copy { font-family: inherit; font-weight: 800; font-size: 14px; background: var(--cyan); color: var(--navy); border: 0; border-radius: 999px; padding: 6px 16px; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; }
+.copy.done { background: var(--white); }
+.prompt pre { margin: 0; padding: 18px 20px; white-space: pre-wrap; word-break: break-word; font-family: 'Cairo', sans-serif; font-size: 16px; line-height: 1.9; background: var(--soft); unicode-bidi: plaintext; }
+.prompt pre .ph { background: var(--peach); border-radius: 5px; padding: 0 4px; font-weight: 700; }
+.code { background: #001B2A; border-radius: var(--radius); margin: 14px 0 22px; overflow: hidden; }
+.code .prompt-head { background: #00121C; }
+.code pre { margin: 0; padding: 16px 20px; color: var(--ice); font-family: var(--mono); font-size: 15px; line-height: 1.8; direction: ltr; text-align: left; overflow-x: auto; white-space: pre; }
+.code pre .c { color: #6E8C99; }
+
+/* ---------- install tabs ---------- */
+.tabs { display: flex; gap: 6px; background: var(--soft); border: 1px solid var(--line); padding: 6px; border-radius: 999px; width: fit-content; max-width: 100%; margin: 18px 0 8px; }
+.tabs button { font-family: inherit; font-size: 16px; font-weight: 800; border: 0; background: transparent; color: var(--muted); padding: 8px 20px; border-radius: 999px; cursor: pointer; white-space: nowrap; }
+.tabs button[aria-selected="true"] { background: var(--navy); color: var(--white); }
+.panel[hidden] { display: none; }
+.steps { counter-reset: s; list-style: none; padding: 0 !important; margin: 18px 0 !important; }
+.steps > li { counter-increment: s; position: relative; padding: 2px 52px 14px 0; margin: 0 !important; }
+.steps > li::before { content: counter(s); position: absolute; right: 0; top: 0; width: 36px; height: 36px; border-radius: 50%; background: var(--ice); color: var(--navy); font-weight: 900; display: grid; place-items: center; font-size: 17px; }
+.steps > li:not(:last-child)::after { content: ""; position: absolute; right: 17px; top: 40px; bottom: 4px; width: 2px; background: var(--line); }
+.download { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 20px; background: var(--navy); color: var(--white); border-radius: var(--radius); padding: 20px 24px; margin: 20px 0; }
+.download .meta { font-size: 15px; color: rgba(255, 255, 255, .72); line-height: 1.6; }
+.download .meta strong { color: var(--white); font-size: 17px; display: block; direction: ltr; text-align: right; }
+
+/* ---------- agents cards ---------- */
+.cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; margin: 18px 0; }
+.card { border: 1px solid var(--line); border-radius: 14px; padding: 16px 18px; background: var(--white); }
+.card .agent { margin-bottom: 6px; }
+a.card { display: block; text-decoration: none; color: inherit; transition: border-color .15s ease; }
+a.card:hover { border-color: var(--navy); }
+.card p { margin: 0; font-size: 15.5px; line-height: 1.75; color: #1D3B4B; }
+
+/* ---------- footer ---------- */
+.end {
+  background:
+    radial-gradient(rgba(255, 255, 255, .07) 2px, transparent 2px) 0 0 / 44px 44px,
+    radial-gradient(circle at 92% 0%, rgba(22, 236, 237, .22) 0%, transparent 40%),
+    var(--navy);
+  color: var(--white); margin-top: 40px;
+}
+.end .in { max-width: 1180px; margin: 0 auto; padding: 56px 20px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 24px; }
+.end h3 { font-size: clamp(26px, 3vw, 34px); font-weight: 900; margin: 0 0 6px; line-height: 1.4; }
+.end p { margin: 0; color: rgba(255, 255, 255, .75); }
+.end .row { display: flex; flex-wrap: wrap; gap: 12px; }
+.foot { text-align: center; font-size: 14px; color: rgba(255, 255, 255, .55); padding: 18px 20px 26px; border-top: 1px solid rgba(255, 255, 255, .08); direction: ltr; }
+
+/* ---------- responsive ---------- */
+@media (max-width: 960px) {
+  .wrap { grid-template-columns: 1fr; gap: 0; padding-top: 28px; }
+  aside.toc { display: none; }
+  .toc-mobile { display: block; border: 1px solid var(--line); border-radius: var(--radius); padding: 4px 18px; margin-bottom: 26px; background: var(--soft); }
+  .toc-mobile summary { cursor: pointer; font-weight: 800; padding: 10px 0; }
+  .toc-mobile ol { margin: 0 0 12px; padding-right: 22px; font-size: 16px; line-height: 1.9; }
+  .toc-mobile a { text-decoration: none; color: var(--navy); }
+  .hero .in { grid-template-columns: 1fr; padding-top: 28px; }
+  .hero-art { min-height: 0; order: -1; display: none; }
+  .byline { padding-bottom: 36px; }
+}
+/* On phones every table row becomes a card, so nothing scrolls sideways. */
+@media (max-width: 640px) {
+  .tbl { border: 0; border-radius: 0; overflow: visible; }
+  .tbl table, .tbl tbody, .tbl tr, .tbl td { display: block; width: 100%; }
+  .tbl thead { display: none; }
+  .tbl tr { border: 1px solid var(--line); border-radius: 14px; padding: 12px 16px; margin-bottom: 10px; background: var(--white) !important; }
+  .tbl tr td { background: none !important; border: 0; padding: 3px 0; }
+  .tbl td:first-child { font-weight: 700; }
+  .tbl td[data-l]:not(:first-child):not(:nth-child(2))::before { content: attr(data-l) ": "; color: var(--muted); font-size: 13px; font-weight: 800; }
+  .tbl td.pts { display: inline-block; width: auto; font-size: 17px; text-align: right; }
+  .tbl td.pts::after { content: " نقطة"; font-size: 13px; color: var(--muted); }
+  .tbl tr:has(td.pts) td:first-child { display: inline-block; width: auto; margin-left: 10px; }
+  .gloss { display: inline; margin: 0 8px 0 0; }
+}
+@media (max-width: 560px) {
+  body { font-size: 17px; }
+  .topbar .btn { display: none; }
+  .hero .ctas .btn { width: 100%; justify-content: center; }
+  .callout { padding: 16px 18px; }
+  td, th { padding: 11px 12px; }
+  table { font-size: 15px; }
+  .tabs { width: 100%; }
+  .tabs button { flex: 1; padding: 8px 10px; font-size: 15px; }
+  .steps > li { padding-right: 46px; }
+}
+
+/* ---------- screenshots ---------- */
+.shot { margin: 18px 0 28px; border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; background: #0B0B0B; }
+.shot img { display: block; width: 100%; height: auto; }
+.shot figcaption { background: var(--soft); border-top: 1px solid var(--line); color: var(--muted); font-size: 14.5px; line-height: 1.7; padding: 10px 16px; }
+.shot figcaption a { color: var(--navy); font-weight: 700; }
+
+/* ---------- how it works ---------- */
+.flow { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin: 20px 0 26px; counter-reset: f; }
+.flow > div { counter-increment: f; position: relative; border: 1px solid var(--line); border-radius: 14px; padding: 16px 18px 16px; background: var(--white); }
+.flow > div::before { content: counter(f); display: inline-grid; place-items: center; width: 30px; height: 30px; border-radius: 9px; background: var(--navy); color: var(--cyan); font-weight: 900; font-size: 15px; margin-bottom: 8px; }
+.flow b { display: block; font-size: 17px; line-height: 1.5; margin-bottom: 4px; }
+.flow p { margin: 0; font-size: 15.5px; line-height: 1.75; color: #1D3B4B; }
+@media (max-width: 720px) { .flow { grid-template-columns: 1fr; } }
+.logos .tile.k { background: #0B0B0B; }
+.tbl td code { white-space: normal; overflow-wrap: anywhere; }
+.logos .tile.k img { width: 100%; height: 100%; border-radius: 20px; }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="in">
+    <a class="brand" href="#top"><span class="dot">G</span><span>Grow With <b>Khalaf</b></span></a>
+    <a class="btn btn-cyan" href="#account">ابدأ الخطوات</a>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <div class="in">
+    <div>
+      <div class="crumbs">موارد ببلاش<span>/</span>Claude × WhatsApp</div>
+      <span class="eyebrow">دليل خطوة بخطوة</span>
+      <h1>خلّي Claude يبنيلك agent يرد على <span class="hl">WhatsApp</span> بتاعك</h1>
+      <p class="lead">اربط Claude Code بـ Kapso، وقوله انت عايز إيه. هيبنيلك agent على رقم البيزنس بتاعك، يرد على الـ leads في أي وقت، ويسألهم الأسئلة المهمة، ويوديهم لديمو مع السيلز.</p>
+      <div class="ctas">
+        <a class="btn btn-cyan" href="#account">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5-7 7 7 7"/></svg>
+          ابدأ الخطوات
+        </a>
+        <a class="btn btn-ghost" href="https://docs.kapso.ai/docs/build-with-ai" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h11l5 5v11H4z"/><path d="M15 4v5h5"/><path d="M8 13h8M8 17h5"/></svg>
+          الـ docs الرسمية بتاعة Kapso
+        </a>
+      </div>
+      <div class="byline">
+        <div class="av">K</div>
+        <div>
+          <strong>الشرح من Grow With Khalaf · الأداة والـ skills من Kapso</strong>
+          <div class="facts"><span>API واتساب الرسمي</span><span>2,000 رسالة ببلاش في الشهر</span><span>Meta Business Partner</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-art" aria-hidden="true">
+      <div class="logos">
+        <div class="tile"><img src="assets/claude.svg" alt=""></div>
+        <div class="link-line"></div>
+        <div class="tile k"><img src="assets/kapso.png" alt=""></div>
+        <div class="link-line"></div>
+        <div class="tile"><img src="assets/whatsapp-green.svg" alt=""></div>
+      </div>
+      <img class="me" src="assets/presenter.png" alt="">
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <article>
+
+    <details class="toc-mobile">
+      <summary>في الصفحة دي</summary>
+      <ol data-toc></ol>
+    </details>
+
+    <p class="big"><b>Kapso</b> منصة بتوصّلك بالـ API الرسمي بتاع واتساب، وعاملة <b>skills</b> لـ Claude Code. يعني بدل ما تبرمج الـ agent بإيدك، بتقول لـ Claude انت عايز إيه، وهو يبنيه على Kapso ويوصّله برقمك.</p>
+
+    <div class="callout dark">
+      <span class="label">مين عمل إيه</span>
+      <p>Kapso والـ agent skills بتوعها من عمل فريق <b>Kapso</b> (<a href="https://kapso.com" target="_blank" rel="noopener"><bdi>kapso.com</bdi></a>)، والـ skills على <a href="https://github.com/gokapso/agent-skills" target="_blank" rel="noopener"><bdi>github.com/gokapso/agent-skills</bdi></a>. الصفحة دي شرح بالعربي من Grow With Khalaf بس، وإحنا مش تبع Kapso ولا Anthropic ولا Meta. كل لينك هنا بيوديك للمصدر الأصلي.</p>
+    </div>
+
+    <!-- ===== how ===== -->
+    <h2 id="how">الـ agent ده بيشتغل إزاي</h2>
+    <div class="flow">
+      <div><b>Claude Code بيبني</b><p>بيستخدم الـ skills والـ CLI بتوع Kapso عشان يعمل workflow فيه AI Agent، ويكتبله التعليمات.</p></div>
+      <div><b>Kapso بيشغّل</b><p>الـ workflow شغال على سيرفرات Kapso ومتوصل برقمك، فبيرد حتى لو اللابتوب مقفول.</p></div>
+      <div><b>واتساب بيوصّل</b><p>العميل بيكلّم رقم البيزنس العادي، والـ agent يرد من خلال الـ API الرسمي بتاع Meta.</p></div>
+    </div>
+    <figure class="shot">
+      <img src="assets/screens/workflow-agent.jpg" alt="workflow في Kapso فيه Start وبعده AI Agent" loading="lazy" width="1600" height="1336">
+      <figcaption>ده شكل الـ agent لما Claude يخلّص: workflow في Kapso، فيه Start وبعده AI Agent.</figcaption>
+    </figure>
+
+    <!-- ===== before ===== -->
+    <h2 id="before">قبل ما تبدأ</h2>
+    <div class="tbl"><table>
+      <thead><tr><th>محتاج إيه</th><th>ليه</th></tr></thead>
+      <tbody>
+        <tr><td><b>Claude Code</b></td><td>هو اللي هيبني الـ agent. لو في تطبيق Claude على الكمبيوتر، افتح تبويب <b>Code</b>.</td></tr>
+        <tr><td><b>Node.js</b> نسخة <bdi>20.19</bdi> أو أحدث</td><td>عشان الـ Kapso CLI وأمر تسطيب الـ skills. لو مش متسطّب، نزّله من <a href="https://nodejs.org" target="_blank" rel="noopener"><bdi>nodejs.org</bdi></a> أو اطلب من Claude يسطّبه.</td></tr>
+        <tr><td>حساب <b>Facebook</b>، ومعاه <b>Meta Business Portfolio</b></td><td>Meta بتطلبهم وانت بتربط الرقم. لازم بيانات الشركة تبقى كاملة: الاسم القانوني، والعنوان، ورقم تليفون، وموقع <bdi>HTTPS</bdi>. لو مش موجودين، هتعملهم وانت بتربط.</td></tr>
+        <tr><td><b>رقم واتساب</b> للبيزنس</td><td>ممكن رقم شغال على WhatsApp Business App، أو خط جديد. وتقدر تجرّب الأول على الـ Sandbox من غير رقم (الخطوة 3).</td></tr>
+        <tr><td><b>وسيلة دفع</b> لرسوم Meta</td><td>من 1 أكتوبر 2026، Meta مش بتوصّل رسايل الـ service لأي حساب ملوش وسيلة دفع. ممكن تدفع بكريديت Kapso أو بكارت على حساب Meta. التفاصيل في <a href="#pricing">الأسعار</a>.</td></tr>
+      </tbody>
+    </table></div>
+
+    <!-- ===== step 1 ===== -->
+    <h2 id="account"><span class="n">1</span>اعمل أكاونت وطلّع الـ API key</h2>
+    <ol class="steps">
+      <li>ادخل على <a href="https://app.kapso.ai" target="_blank" rel="noopener"><bdi>app.kapso.ai</bdi></a> واعمل أكاونت ببلاش، وهو هيعملك project.</li>
+      <li>هتلاقي صفحة <b>Quick setup</b>. في أول خطوة دوس <b>Create API key</b> وانسخ المفتاح.</li>
+      <li>افتح الـ Terminal واكتب السطر ده، وحط مفتاحك مكان <code>your_api_key</code>:</li>
+    </ol>
+    <div class="code">
+      <div class="prompt-head"><span class="t"><small>TERMINAL</small>الـ API key</span><button class="copy">انسخ</button></div>
+      <pre>export KAPSO_API_KEY="your_api_key"</pre>
+    </div>
+    <figure class="shot">
+      <img src="assets/screens/quick-setup.jpg" alt="صفحة Quick setup في Kapso بخطواتها الأربعة" loading="lazy" width="1600" height="1584">
+      <figcaption>صفحة <b>Quick setup</b> جوه Kapso. الخطوات اللي هنا نفس اللي في الصفحة دي.</figcaption>
+    </figure>
+    <div class="callout warn">
+      <span class="label">المفتاح ده زي الباسورد</span>
+      <p>متحطوش في بوست ولا في screenshot، ومترفعوش على GitHub. أمر <code>export</code> بيفضل شغال في الـ Terminal المفتوح بس. لو عايزه يفضل على طول، قول لـ Claude يضيف <code>KAPSO_API_KEY</code> لملف <code>~/.zshrc</code>.</p>
+    </div>
+
+    <!-- ===== step 2 ===== -->
+    <h2 id="install"><span class="n">2</span>سطّب الـ CLI والـ skills</h2>
+    <p>في نفس الـ Terminal، اكتب الـ 3 أوامر دول:</p>
+    <div class="code">
+      <div class="prompt-head"><span class="t"><small>TERMINAL</small>التسطيب</span><button class="copy">انسخ</button></div>
+      <pre>npm install -g @kapso/cli
+npx skills add gokapso/agent-skills
+kapso login</pre>
+    </div>
+    <ul>
+      <li><b>الأول</b> بيسطّب الـ Kapso CLI، وده اللي Claude بيستخدمه عشان يتعامل مع حسابك.</li>
+      <li><b>التاني</b> بيسطّب الـ skills. لو سألك تسطّبها لأنهي agent، اختار <b>Claude Code</b>.</li>
+      <li><b>التالت</b> بيفتح المتصفح عشان تسجّل دخول بحساب Kapso.</li>
+    </ul>
+    <p>بعدها اكتب <code>kapso status</code> عشان تتأكد إن كل حاجة متوصلة. دي الـ 4 skills اللي اتسطّبت:</p>
+    <div class="tbl"><table>
+      <thead><tr><th>الـ skill</th><th>بتعمل إيه</th></tr></thead>
+      <tbody>
+        <tr><td><span class="agent">automate-whatsapp</span></td><td>بتبني الـ workflows والـ agents والـ functions. دي اللي هتشتغل بيها النهارده.</td></tr>
+        <tr><td><span class="agent">integrate-whatsapp</span></td><td>بتربط واتساب، وتعمل الـ webhooks، وتبعت رسايل عادية أو templates.</td></tr>
+        <tr><td><span class="agent">observe-whatsapp</span></td><td>بتدوّر في اللوجز، وتعرف الرسالة موصلتش ليه، وتعمل health check.</td></tr>
+        <tr><td><span class="agent">integrate-whatsapp-calling</span></td><td>لمكالمات واتساب الصوتية. مش هتحتاجها في الدليل ده.</td></tr>
+      </tbody>
+    </table></div>
+    <figure class="shot">
+      <img src="assets/screens/github-skills.jpg" alt="ريبو gokapso/agent-skills على GitHub" loading="lazy" width="1600" height="1250">
+      <figcaption>الـ skills على GitHub: <a href="https://github.com/gokapso/agent-skills" target="_blank" rel="noopener"><bdi>gokapso/agent-skills</bdi></a>. Kapso كاتبين إنها لسه alpha وبتتغير بسرعة.</figcaption>
+    </figure>
+
+    <!-- ===== step 3 ===== -->
+    <h2 id="number"><span class="n">3</span>اربط رقم البيزنس</h2>
+    <div class="code">
+      <div class="prompt-head"><span class="t"><small>TERMINAL</small>ربط الرقم</span><button class="copy">انسخ</button></div>
+      <pre>kapso setup</pre>
+    </div>
+    <p>الأمر ده بيطلّعلك لينك. افتحه، وكمّل خطوات Meta (اسمها embedded signup، وبتاخد حوالي 5 دقايق). هتختار طريقة من التلاتة دول:</p>
+    <div class="tbl"><table>
+      <thead><tr><th>الطريقة</th><th>تنفع إمتى</th></tr></thead>
+      <tbody>
+        <tr><td><b>WhatsApp Business App</b></td><td>لو رقمك شغال على تطبيق واتساب بيزنس ومش عايز تسيبه. بتمسح QR code من التطبيق، والرقم يفضل شغال في التطبيق ومع Kapso في نفس الوقت.</td></tr>
+        <tr><td><b>Bring your own SIM</b></td><td>لو عندك خط مخصوص للبيزنس. بتأكده بـ SMS أو مكالمة، والرقم بيتنقل لـ Kapso خالص ومش هيشتغل على التطبيق تاني.</td></tr>
+        <tr><td><b>Instant setup</b></td><td>رقم أمريكي جاهز من Kapso من غير SMS. سريع للتجربة، بس العميل المصري هيشوف رقم <bdi dir="ltr">+1</bdi>.</td></tr>
+      </tbody>
+    </table></div>
+    <div class="callout warn">
+      <span class="label">اختيار تبعد عنه</span>
+      <p>لو ظهرلك <b>Use a display name with a virtual number instead</b> متختاروش. Kapso بيقولوا إنه ممكن يسيبك برقم محدود تبع Meta.</p>
+    </div>
+    <div class="callout tip">
+      <span class="label">عايز تجرّب الأول من غير رقم؟ استخدم الـ Sandbox</span>
+      <p>من <b>WhatsApp ← Sandbox</b> في Kapso دوس <b>Add Test Number</b>، واكتب رقم موبايلك. بعدين دوس <b>Open WhatsApp</b> وابعت الكود اللي من 6 حروف من نفس الرقم في خلال 15 دقيقة، والكود بيفرّق بين الحروف الكبيرة والصغيرة. الـ Sandbox بيقبل رسايل نص وأزرار بس، ومفيهوش templates.</p>
+    </div>
+    <figure class="shot">
+      <img src="assets/screens/docs-connect.jpg" alt="صفحة Connect WhatsApp في docs بتاعة Kapso" loading="lazy" width="1600" height="1125">
+      <figcaption>المتطلبات كاملة في <a href="https://docs.kapso.ai/docs/how-to/whatsapp/connect-whatsapp" target="_blank" rel="noopener">Connect WhatsApp</a> في docs بتاعة Kapso.</figcaption>
+    </figure>
+
+    <!-- ===== step 4 ===== -->
+    <h2 id="prompt"><span class="n">4</span>قول لـ Claude انت عايز إيه</h2>
+    <p>افتح Claude Code في فولدر جديد فاضي. انسخ البرومبت ده، واملا الحاجات اللي بين القوسين بالبرتقالي:</p>
+    <div class="prompt">
+      <div class="prompt-head"><span class="t"><small>PROMPT</small>بناء الـ agent</span><button class="copy">انسخ</button></div>
+      <pre>عايزك تبنيلي agent على واتساب باستخدام Kapso.
+
+عن الشركة: <span class="ph">[اسم الشركة]</span>، شركة SaaS بتعمل <span class="ph">[مثلًا: سيستم إدارة مخازن للشركات]</span>.
+الباقات: <span class="ph">[الباقات وأسعارها]</span>.
+
+الـ agent يعمل الآتي:
+1. يرد على أي lead يبعت على رقمنا <span class="ph" dir="ltr">[+20 10 0000 0000]</span>. يتكلم مصري، ولو العميل كتب إنجليزي يرد عليه إنجليزي.
+2. يسأل أسئلة قليلة، واحد واحد: اسم الشركة، والمجال، وعدد اليوزرز المتوقع، وعايزين يبدأوا إمتى.
+3. لو الـ lead مناسب، يبعتله لينك حجز الديمو مع السيلز مانجر: <span class="ph">[لينك Calendly أو Cal.com]</span>.
+4. لو العميل طلب يكلّم حد من التيم، أو سأل حاجة مش عارف إجابتها، يحوّله لحد من التيم على طول ومايألّفش إجابة.
+5. ميوعدش بخصومات ولا مواعيد تسليم.
+
+استخدم الـ Kapso skills والـ CLI. اعمل workflow فيه AI Agent متوصل بالرقم اللي ربطته، وخليه draft.
+وريني التعليمات (system prompt) قبل ما تشغّله.</pre>
+    </div>
+    <p>Claude هيشوف الأرقام المتوصلة بحسابك، ويبني الـ workflow، ويوريك التعليمات. راجعها، ولما تبقى تمام قوله «شغّله».</p>
+    <div class="callout tip">
+      <span class="label">ليه لينك حجز ومش حجز مباشر في الكالندر؟</span>
+      <p>اللينك أسهل وأضمن حاجة تبدأ بيها. لو عايز الـ agent يشوف المواعيد الفاضية ويحجز بنفسه، قول لـ Claude: «اربط الـ agent بـ <bdi>Cal.com</bdi> كـ webhook tool». بس ده هيحتاج API key بتاع الكالندر.</p>
+    </div>
+
+    <!-- ===== step 5 ===== -->
+    <h2 id="test"><span class="n">5</span>جرّبه</h2>
+    <ol class="steps">
+      <li>ابعت رسالة للرقم من موبايلك الشخصي (أو للـ Sandbox) كأنك lead: «أهلًا، عايز أعرف أسعار السيستم».</li>
+      <li>رد على أسئلته، وجرّب تقوله «عايز أكلّم حد من التيم» عشان تتأكد إنه بيحوّل.</li>
+      <li>لو حاجة مش ماشية صح، ارجع لـ Claude Code والصق ده:</li>
+    </ol>
+    <div class="prompt">
+      <div class="prompt-head"><span class="t"><small>PROMPT</small>المراجعة</span><button class="copy">انسخ</button></div>
+      <pre>شوف آخر المحادثات واللوجز بتاعة الـ agent على Kapso، وقولّي رد إزاي في كل رسالة.
+لو فيه رد غلط أو error، قولّي السبب وصلّحه، ووريني التعديل قبل ما تنشره.</pre>
+    </div>
+
+    <!-- ===== rules ===== -->
+    <h2 id="rules">قواعد Meta اللي لازم تعرفها</h2>
+    <div class="tbl"><table>
+      <thead><tr><th>القاعدة</th><th>يعني إيه</th></tr></thead>
+      <tbody>
+        <tr><td><b>الموافقة (opt-in)</b></td><td>متبعتش لحد على واتساب غير لو هو موافق إنك تكلمه هناك. لو العميل هو اللي بدأ وبعتلك، يبقى تمام.</td></tr>
+        <tr><td><b>شباك الـ 24 ساعة</b></td><td>أول ما العميل يبعتلك، بيبدأ عدّاد 24 ساعة، وبيتصفّر مع كل رسالة جديدة منه. في الوقت ده الـ agent يرد عادي.</td></tr>
+        <tr><td><b>بعد الـ 24 ساعة</b></td><td>مش هتقدر تبعتله غير <b>template</b> متوافق عليها من Meta. المراجعة بتاخد لحد 24 ساعة، وممكن أكتر في أول مرة.</td></tr>
+        <tr><td><b>تحويل لبني آدم</b></td><td>Meta بتسمح بالـ automation، بس لازم يبقى فيه طريقة واضحة وسريعة العميل يوصل بيها لحد من التيم. عشان كده البند 4 في البرومبت مهم.</td></tr>
+      </tbody>
+    </table></div>
+    <figure class="shot">
+      <img src="assets/screens/templates.jpg" alt="صفحة Templates في Kapso" loading="lazy" width="1600" height="719">
+      <figcaption>الـ templates بتتعمل من <b>WhatsApp ← Templates</b> في Kapso، أو تعملها في WhatsApp Manager وتعمل <b>Sync</b>. وتقدر تطلب من Claude يعملها.</figcaption>
+    </figure>
+    <div class="callout tip">
+      <span class="label">اختار نوع الـ template صح</span>
+      <p>فيه 3 أنواع: <b>Marketing</b> للعروض والترويج، بعدها <b>Utility</b> لحاجة تخص طلب أو ميعاد، وفي الآخر <b>Authentication</b> لأكواد التأكيد. Kapso بيقولوا إن اختيار النوع الغلط من أكتر أسباب الرفض.</p>
+    </div>
+
+    <!-- ===== pricing ===== -->
+    <h2 id="pricing">الأسعار</h2>
+    <p>فيه حاجتين منفصلين: باقة <b>Kapso</b>، و<b>رسوم Meta</b> على الرسايل.</p>
+    <div class="tbl"><table>
+      <thead><tr><th>باقة Kapso</th><th>السعر</th><th>رسايل في الشهر</th><th>أرقام</th></tr></thead>
+      <tbody>
+        <tr><td><b>Free</b></td><td data-l="السعر"><span class="num">$0</span>، ومعاها <bdi>$2</bdi> كريديت هدية</td><td data-l="رسايل في الشهر"><span class="num">2,000</span></td><td data-l="أرقام">رقم واحد</td></tr>
+        <tr><td><b>Pro</b></td><td data-l="السعر"><span class="num">$25</span> في الشهر</td><td data-l="رسايل في الشهر"><span class="num">100,000</span></td><td data-l="أرقام">3 أرقام</td></tr>
+        <tr><td><b>Platform</b></td><td data-l="السعر"><span class="num">$299</span> في الشهر</td><td data-l="رسايل في الشهر"><span class="num">1,000,000</span></td><td data-l="أرقام">50 رقم</td></tr>
+      </tbody>
+    </table></div>
+    <p>الرسايل اللي بتتحسب في Kapso هي اللي داخلة واللي خارجة، نص أو ميديا أو templates أو reactions. علامات القراءة مش بتتحسب. الـ AI agents والـ workflows ببلاش في كل الباقات.</p>
+    <div class="callout warn">
+      <span class="label">رسوم Meta منفصلة عن «ببلاش»</span>
+      <p>من 1 أكتوبر 2026، كل رقم ليه <b>1,000 رسالة service ببلاش في الشهر</b> من Meta. رسايل الـ service هي اللي بترد بيها جوه الـ 24 ساعة، والـ 1,000 مش بتترحّل للشهر اللي بعده. بعدها كل رسالة بفلوس حسب بلد العميل. الـ templates دايمًا بفلوس. Kapso بيعدّوا رسوم Meta زي ما هي من غير زيادة، وفيه 5% فرق عملة لو الحساب مش بالدولار.</p>
+    </div>
+    <figure class="shot">
+      <img src="assets/screens/pricing.jpg" alt="صفحة أسعار Kapso" loading="lazy" width="1600" height="1250">
+      <figcaption>الأسعار ممكن تتغير، فراجعها على <a href="https://kapso.com/pricing" target="_blank" rel="noopener"><bdi>kapso.com/pricing</bdi></a>. أسعار Meta لكل بلد في <a href="https://developers.facebook.com/documentation/business-messaging/whatsapp/pricing" target="_blank" rel="noopener">صفحة الأسعار بتاعتهم</a>.</figcaption>
+    </figure>
+
+    <!-- ===== faq ===== -->
+    <h2 id="faq">أسئلة ومشاكل</h2>
+    <div class="tbl"><table>
+      <thead><tr><th>السؤال أو المشكلة</th><th>الإجابة</th></tr></thead>
+      <tbody>
+        <tr><td>ينفع برقم مصري <bdi dir="ltr">+20</bdi>؟</td><td>Kapso مش ناشرين ليستة بالبلاد المدعومة، وبيقولوا إن قيود البلد أو الحساب ممكن توقف الإرسال. إحنا لسه مجربناش رقم مصري. جرّب الأول على الـ Sandbox، ولو حصلت مشكلة كلّم الدعم من <b>Help ← Support</b> في Kapso.</td></tr>
+        <tr><td>هيرد لو اللابتوب مقفول؟</td><td>أيوه. الـ workflow شغال على Kapso. Claude Code بتحتاجه بس وانت بتبني أو بتعدّل.</td></tr>
+        <tr><td>اللي بيرد على العميل هو Claude؟</td><td>Claude Code هو اللي بيبني الـ agent ويكتب تعليماته. الرد نفسه بيطلع من الموديل اللي متحدد في خطوة الـ AI Agent جوه Kapso. لو عايز تعرف الموديلات المتاحة أو تغيّره، اسأل Claude.</td></tr>
+        <tr><td><code>kapso: command not found</code></td><td>اتأكد إن Node.js نسخة <bdi>20.19</bdi> أو أحدث، وسطّب تاني بـ <code>npm install -g @kapso/cli</code>. أو استخدم الـ installer الرسمي: <code>curl -fsSL https://kapso.ai/install.sh | bash</code>.</td></tr>
+        <tr><td>Claude مش شايف الـ skills</td><td>اقفل Claude Code وافتحه تاني. ولو لسه، شغّل <code>npx skills add gokapso/agent-skills</code> تاني واختار Claude Code.</td></tr>
+        <tr><td><bdi dir="ltr">Active sandbox session required</bdi></td><td>الرقم اللي بتبعتله مش هو الرقم اللي سجّلته في الـ Sandbox.</td></tr>
+        <tr><td>كود الـ Sandbox مش شغال</td><td>الكود بيخلص بعد 15 دقيقة وحساس للحروف. اعمل session جديدة وابعته من نفس الرقم.</td></tr>
+        <tr><td>الرسايل مش بتوصل للعميل</td><td>اتأكد إن فيه وسيلة دفع أو كريديت على الحساب، وإنك جوه الـ 24 ساعة. وقول لـ Claude: «استخدم observe-whatsapp وقولّي الرسالة موصلتش ليه».</td></tr>
+      </tbody>
+    </table></div>
+
+    <div class="callout dark">
+      <span class="label">الكريديت والمصادر</span>
+      <p>Kapso والـ agent skills من عمل فريق Kapso. الـ skills على <a href="https://github.com/gokapso/agent-skills" target="_blank" rel="noopener"><bdi>github.com/gokapso/agent-skills</bdi></a> من غير رخصة مكتوبة، فإحنا مش بنعيد نشر ملفاتها، وبنحطلك لينك المصدر بس. المعلومات من <a href="https://docs.kapso.ai" target="_blank" rel="noopener"><bdi>docs.kapso.ai</bdi></a>، ومن <a href="https://developers.facebook.com/documentation/business-messaging/whatsapp/messages/send-messages" target="_blank" rel="noopener">docs بتاعة Meta</a>، واتراجعت في 28 أكتوبر 2026. الشرح والأمثلة من Grow With Khalaf، وإحنا مش تبع Kapso ولا Anthropic ولا Meta.</p>
+    </div>
+
+  </article>
+
+  <aside class="toc">
+    <h4>في الصفحة دي</h4>
+    <ol data-toc></ol>
+  </aside>
+</div>
+
+<section class="end">
+  <div class="in">
+    <div>
+      <h3>تابع Grow With Khalaf عشان أدوات زي دي</h3>
+      <p>كل أداة جديدة بتنزل في ريل الأول، والشرح الكامل بيبقى هنا.</p>
+    </div>
+    <div class="row">
+      <a class="btn btn-cyan" href="https://app.kapso.ai" target="_blank" rel="noopener">افتح Kapso</a>
+      <a class="btn btn-ghost" href="https://github.com/gokapso/agent-skills" target="_blank" rel="noopener">الـ skills على GitHub</a>
+    </div>
+  </div>
+  <div class="foot">Guide © 2026 Grow With Khalaf · Kapso and its agent skills belong to Kapso · Not affiliated with Kapso, Anthropic, Meta or WhatsApp</div>
+</section>
+
+<script>
+// Table of contents, built from the h2s so the two copies never drift.
+const heads = [...document.querySelectorAll('article h2[id]')];
+document.querySelectorAll('[data-toc]').forEach(list => {
+  heads.forEach(h => {
+    const li = document.createElement('li');
+    const a = document.createElement('a');
+    a.href = '#' + h.id;
+    a.textContent = h.textContent.replace(/^\d+/, m => 'خطوة ' + m + ': ');
+    li.appendChild(a);
+    list.appendChild(li);
+  });
+});
+const tocLinks = [...document.querySelectorAll('aside.toc a')];
+const spy = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    tocLinks.forEach(a => a.classList.toggle('on', a.getAttribute('href') === '#' + e.target.id));
+  });
+}, {rootMargin: '-90px 0px -70% 0px'});
+heads.forEach(h => spy.observe(h));
+
+// Label each cell with its column header, for the stacked phone layout.
+document.querySelectorAll('.tbl table').forEach(t => {
+  const labels = [...t.querySelectorAll('thead th')].map(th => th.textContent);
+  t.querySelectorAll('tbody tr').forEach(tr => [...tr.children].forEach((td, i) => td.dataset.l = labels[i]));
+});
+
+// Copy buttons copy the plain text of the block below them.
+document.querySelectorAll('.copy').forEach(b => b.addEventListener('click', async () => {
+  const text = b.closest('.prompt, .code').querySelector('pre').innerText;
+  try {
+    await navigator.clipboard.writeText(text);
+  } catch {
+    const ta = Object.assign(document.createElement('textarea'), {value: text});
+    document.body.appendChild(ta); ta.select(); document.execCommand('copy'); ta.remove();
+  }
+  b.textContent = 'اتنسخ ✓'; b.classList.add('done');
+  setTimeout(() => { b.textContent = 'انسخ'; b.classList.remove('done'); }, 1600);
+}));
+</script>
+</body>
+</html>
